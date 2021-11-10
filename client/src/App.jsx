@@ -5,6 +5,8 @@ import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import jQuery from "jquery"; 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,6 +14,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Success from "./pages/Success";
+import Fail from "./pages/Fail";
 import { useSelector } from "react-redux";
 import ScrollToTop from "react-router-scroll-top";
 
@@ -37,6 +40,9 @@ const App = (props) => {
           </Route>
           <Route path="/success">
             <Success />
+          </Route>
+          <Route path="/fail">
+            <Fail />
           </Route>
           <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
           <Route path="/register">

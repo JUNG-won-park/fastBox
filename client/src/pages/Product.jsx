@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
-
+import { comma } from '../function.js';
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -127,6 +127,7 @@ const Product = () => {
       try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
+        setSize(res.data.size[0]);
       } catch {}
     };
     getProduct();
@@ -141,6 +142,7 @@ const Product = () => {
   };
 
   const handleClick = () => {
+    console.log({...product, quantity, size})
     dispatch(
       addProduct({ ...product, quantity, size })
     );
@@ -168,7 +170,7 @@ const Product = () => {
         <InfoContainer>
           <Title>{product.title}</Title>
           <Desc>{product.desc}</Desc>
-          <Price>{(product.price)} ₩</Price>
+          <Price>{comma(product.price)} ₩</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Size</FilterTitle>

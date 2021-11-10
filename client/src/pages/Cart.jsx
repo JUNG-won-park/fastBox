@@ -1,14 +1,16 @@
-import { Add, Remove } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { mobile } from "../responsive";
-import { useEffect, useState } from "react";
-import { userRequest } from "../requestMethods";
+import { mobile } from "../responsive"; 
 import { useHistory} from "react-router";
-
+import {
+  BrowserRouter as Router,
+  Redirect
+} from "react-router-dom";
+import Success from "./Success";
+import Fail from "./Fail";
 
 const Container = styled.div``;
 
@@ -39,14 +41,7 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
-const TopTexts = styled.div`
-  ${mobile({ display: "none" })}
-`;
-const TopText = styled.span`
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0px 10px;
-`;
+ 
 
 const Bottom = styled.div`
   display: flex;
@@ -148,7 +143,8 @@ const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
 
 const Button = styled.button`
-  width: 100%;
+  width: 48%;
+  margin: 4px;
   padding: 10px;
   background-color: black;
   color: white;
@@ -163,7 +159,36 @@ const Cart = () => {
     history.goBack();
   };
   
-  const cart = useSelector((state) => state.cart);
+const cart = useSelector((state) => state.cart);
+const user = useSelector((state) => state.user);
+
+//아임포트 결제
+var IMP = window.IMP; 
+IMP.init("imp93914711"); 
+
+const requestPay = (method, name, price) => {
+
+  console.log(cart.products)
+  IMP.request_pay({ 
+    pg: "html5_inicis.INIpayTest",
+    pay_method: method,
+        merchant_uid: "ORD20210131-00012011",
+        name: name,
+        amount: price,
+        buyer_email: "fastBoxTest@gmail.com",
+        buyer_name: "빠른상자",
+        buyer_tel: "010-1234-1234",
+        buyer_addr: "Dusty-House, Mars, Solar System",
+        buyer_postcode: "09999"
+  }, rsp => { // callback
+    if (rsp.success) {
+      <Redirect to="/success" />
+    } else {
+      <Redirect to="/fail" />
+    }
+  });
+}
+
   return (
     <Container>
       <Navbar />
@@ -222,7 +247,9 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>{cart.total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} ₩</SummaryItemPrice>
             </SummaryItem>
-            <Button >CHECKOUT NOW</Button>
+            <Button onClick={() => requestPay("card",user.currentUser.username,cart.products.map(item => item.price * item.quantity).reduce((sum, current) => sum+current))}>ORDER NOW</Button>
+            <Button onClick={() => requestPay("kakaopay",user.currentUser.username,cart.products.map(item => item.price * item.quantity).reduce((sum, current) => sum+current))}
+            style={{ backgroundColor: '#ffe164', borderColor:'#ffe164', color:'#181600'}} >KAKAO PAY</Button>
           </Summary>
         </Bottom>
       </Wrapper>

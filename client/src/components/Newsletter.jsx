@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
-  height: 40vh;
+  height: 300px;
   background: linear-gradient(-135deg, #c12674, #2c1c39) fixed;
   display: flex;
   align-items: center;

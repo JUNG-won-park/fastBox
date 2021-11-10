@@ -54,17 +54,17 @@ const Desc = styled.a`
 `;
 
  
-const Success = () => { 
+const Fail = () => { 
  
   return (
     <Container>
       <Wrapper>
         <Title>ORDER RESULT</Title> <br/>
-        <Desc>Order Succeed 😁 </Desc> <br/><br/>
+        <Desc>Order Failed 😥 </Desc> <br/><br/>
         <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}><Button>GO BACK HOME</Button></Link>
       </Wrapper>
     </Container>
   );
 };
 
-export default Success;
+export default Fail;

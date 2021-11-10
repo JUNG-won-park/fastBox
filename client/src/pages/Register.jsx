@@ -43,6 +43,7 @@ const Input = styled.input`
 const Agreement = styled.span`
   font-size: 12px;
   margin: 20px 0px;
+  position: flex;
 `;
 
 const Button = styled.button`
@@ -67,8 +68,7 @@ const Register = () => {
           <Input placeholder="password" />
           <Input placeholder="confirm password" />
           <Agreement>
-            By creating an account, I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
+            WELCOME 2 FASTBOX JOIN US TO SHOP FASTER AND CHEAPER HERE IN FASTBOX
           </Agreement>
           <Button>CREATE</Button>
         </Form>

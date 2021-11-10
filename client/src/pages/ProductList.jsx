@@ -74,8 +74,8 @@ const ProductList = () => {
           <FilterText>SORT:</FilterText>
           <Select onChange={(e) => setSort(e.target.value)}>
             
-            <Option value="asc">낮은가격순</Option>
-            <Option value="desc">높은가격순</Option>
+            <Option value="asc">LowestPrice</Option>
+            <Option value="desc">HighestPrice</Option>
           </Select>
         </Filter>
       </FilterContainer>

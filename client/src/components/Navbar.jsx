@@ -72,17 +72,10 @@ const But = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
-
-
-const odong = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)?.currentUser
-
+ 
 const Navbar = () => {
-  const odong2 = useSelector((state) => state.user.currentUser);
-  useEffect(() => {
-    return () => {
-      console.log(`니얼굴 : ${odong.user}`)
-    };
-  }, [odong2])
+  const user = useSelector((state) => state.user.currentUser);
+ 
 
   const dispatch = useDispatch()
 
@@ -101,7 +94,7 @@ const Navbar = () => {
         <Left>
           <Link to="/products/Shoes" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>SHOES</MenuItem></Link>
           <Link to="/products/Cloth" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>CLOTHING</MenuItem></Link>
-          <Link to="/products/Equip" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>EQUIPMENT</MenuItem></Link>
+          <Link to="/products/Equip" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>EQUIPMENT</MenuItem></Link> 
           {/* <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
@@ -112,9 +105,13 @@ const Navbar = () => {
         </Center>
         <Right>
           <Link to="/register" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>REGISTER</MenuItem></Link>
-          <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>SIGN IN</MenuItem></Link>
-          <But onClick={handleLogout}>LOGOUT</But>
-          
+          {
+            !user ? (
+              <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>SIGN IN</MenuItem></Link>
+            ) : (
+              <But onClick={handleLogout}>LOGOUT</But>
+            )
+          }
           <Link to="/cart" style={{ color: 'inherit', textDecoration: 'inherit'}}>
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">

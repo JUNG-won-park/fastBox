@@ -57,40 +57,12 @@ const Icon = styled.div`
     transform: scale(1.1);
   }
 `;
-
-// const Stripe = styled.div`
-//   width: 100px;
-//   height: 100px;
-//   background: repeating-linear-gradient(
-//     -45deg,
-//     #f85b23,
-//     #f85b23 13px,
-//     #f4f5f7 13px,
-//     #f4f5f7 26px
-//   );
-//   margin-right:80px;
-//   margin-bottom:120px;
-//   position: absolute;
-// `;
-
-// const Stripe2 = styled.div`
-//   width: 100px;
-//   height: 100px;
-//   margin-right: 20vw;
-//   margin-top: 350px;
-//   z-index:99;
-//   position: absolute;
-//   font-family: BordaW00-Bold;
-//   font-size: 20px;
-//   color: #f85b23;
-//   font-weight:800;
-// `;
+ 
 
 const Product = ({ item }) => { 
   return (
      
-    <Container>
-      {/* {(item.categories=="Cloth")? <Stripe /> : ""} */}
+    <Container> 
       <Image src={item.img} />
       
       
