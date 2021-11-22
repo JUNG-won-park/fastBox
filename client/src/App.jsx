@@ -5,6 +5,7 @@ import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import Maps from "./pages/Maps";
 import jQuery from "jquery"; 
 
 import {
@@ -37,6 +38,9 @@ const App = (props) => {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/maps">
+            <Maps />
           </Route>
           <Route path="/success">
             <Success />

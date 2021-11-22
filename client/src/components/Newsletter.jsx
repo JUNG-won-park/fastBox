@@ -1,4 +1,3 @@
-import { Send } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
@@ -27,28 +26,6 @@ const Desc = styled.div`
 
 `;
 
-const InputContainer = styled.div`
-  width: 50%;
-  height: 40px;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid lightgray;
-  ${mobile({ width: "80%" })}
-`;
-
-const Input = styled.input`
-  border: none;
-  flex: 8;
-  padding-left: 20px;
-`;
-
-const Button = styled.button`
-  flex: 1;
-  border: none;
-  background-color: teal;
-  color: white;
-`;
 
 const Newsletter = () => {
   return (
@@ -56,13 +33,7 @@ const Newsletter = () => {
       <img src="https://i.ibb.co/XjbNmRz/banner-Logo5.png"></img>
       <Title>Fastest delivery Cheapest price</Title>
       <Desc>Find fastBox kakao plus account in kakaotalk or contact us through email <br/>We also privde 1:1 chat through our kakao plus account</Desc>
-      {/* <Desc>Get timely updates from your favorite products.</Desc>
-      <InputContainer>
-        <Input placeholder="Your email" />
-        <Button>
-          <Send />
-        </Button>
-      </InputContainer> */}
+       
     </Container>
   );
 };

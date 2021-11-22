@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { ShoppingCartOutlined } from "@material-ui/icons";
 import React, {useEffect} from 'react'
 import styled from "styled-components";
 import { mobile } from "../responsive";
@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {logout} from '../redux/userRedux.js';
 import {removeProduct, removeCart} from '../redux/cartRedux.js';
+import { slide as Menu } from 'react-burger-menu';
+import "./navmenu.css";
 
 const Container = styled.div`
   height: 80px;
@@ -29,18 +31,7 @@ const Left = styled.div`
 `;
 
 
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-`;
 
-const Input = styled.input`
-  border: none;
-  ${mobile({ width: "50px" })}
-`;
 
 const Center = styled.div`
   flex: 1;
@@ -60,7 +51,7 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
@@ -72,6 +63,8 @@ const But = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
+
+
  
 const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -92,13 +85,15 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Link to="/products/Shoes" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>SHOES</MenuItem></Link>
-          <Link to="/products/Cloth" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>CLOTHING</MenuItem></Link>
-          <Link to="/products/Equip" style={{ color: 'inherit', textDecoration: 'inherit'}}><MenuItem>EQUIPMENT</MenuItem></Link> 
-          {/* <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer> */}
+
+          <Menu>
+          <Link to="/products/Shoes" style={{ color: 'white', textDecoration: 'inherit', lineHeight:'40px'}}><MenuItem>SHOES</MenuItem></Link>
+          <Link to="/products/Cloth" style={{ color: 'white', textDecoration: 'inherit', lineHeight:'40px'}}><MenuItem>CLOTHING</MenuItem></Link>
+          <Link to="/products/Equip" style={{ color: 'white', textDecoration: 'inherit', lineHeight:'40px'}}><MenuItem>EQUIPMENT</MenuItem></Link>
+          <Link to="/maps" style={{ color: 'white', textDecoration: 'inherit', lineHeight:'40px'}}><MenuItem>TRACKING</MenuItem></Link>
+          </Menu>
+         
+           
         </Left>
         <Center><Link to="/">
           <Logo><img src="https://i.ibb.co/Zm9rMcX/site-Logo3.png" style={{width:"30vh"}} /></Logo></Link>
