@@ -41,7 +41,6 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
- 
 
 const Bottom = styled.div`
   display: flex;
@@ -79,13 +78,8 @@ const Details = styled.div`
 `;
 
 const ProductName = styled.span``;
-
 const ProductId = styled.span``;
-
-
-
 const ProductSize = styled.span``;
-
 const PriceDetail = styled.div`
   flex: 1;
   display: flex;
