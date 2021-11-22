@@ -30,7 +30,6 @@ const Title = styled.h1`
   font-weight: 300;
 `;
  
-
 const Button = styled.button`
   width: 40%;
   border: none;
@@ -45,15 +44,10 @@ const Button = styled.button`
   }
 `;
 
- 
-
 const Desc = styled.a`
-  
   font-size: 35px;
-
 `;
 
- 
 const Fail = () => { 
  
   return (

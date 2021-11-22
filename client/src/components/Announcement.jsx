@@ -11,6 +11,7 @@ const Container = styled.div`
   font-weight: 500;
 `;
 
+
 const Announcement = () => {
   return <Container>OPEN EVENT ! Free Shipping !</Container>;
 };

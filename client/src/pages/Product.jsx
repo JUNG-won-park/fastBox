@@ -68,8 +68,6 @@ const FilterTitle = styled.span`
   font-weight: 200;
 `;
 
-
-
 const FilterSize = styled.select`
   margin-left: 10px;
   padding: 5px;

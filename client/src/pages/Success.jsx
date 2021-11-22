@@ -48,9 +48,7 @@ const Button = styled.button`
  
 
 const Desc = styled.a`
-  
   font-size: 35px;
-
 `;
 
  
