@@ -6,6 +6,9 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { Search } from "@material-ui/icons";
+import dotenv from "dotenv";
+dotenv.config();
+
  
 const Input = styled.div`
   border: 0.5px solid lightgray;
@@ -124,7 +127,8 @@ function Maps(props) {
       return 0
     }
    }
+ 
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyA0ekiSEsQakPw3ZFPHqrl5TpiGWYzDfDs",
+  apiKey: process.env.REACT_APP_MAP_SEC,
 })(Maps);
