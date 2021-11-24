@@ -2,4 +2,5 @@
 
 DEMO : https://youtu.be/IIcv1toN4NM
 
-![rydmy](https://user-images.githubusercontent.com/66711443/141198483-0b72e202-6c9f-4a85-8393-6ae0c977995d.png)
+
+![poster_re](https://user-images.githubusercontent.com/66711443/143173240-78976269-e801-4719-a9b7-ea536952d5bb.png)
